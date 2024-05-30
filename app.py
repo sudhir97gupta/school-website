@@ -10,6 +10,10 @@ def home():
 def contact():
     return render_template('contact.html')
 
+@app.route('/admission')
+def admission():
+    return render_template('admission_form.html')
+
 
 
 if __name__ == "__main__":

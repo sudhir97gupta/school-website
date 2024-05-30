@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BNS DAV Public School</title>
+    {% include 'bootstrap.html' %}
+</head>
+<body>
+    <div class="container">
+        <style>
+            h2 {
+                font-family: verdana;
+                font-size: 160%;
+                color: rgb(0, 0, 0);
+            }
+        </style>
+        <h1 class="text-center mt-2 mb-4">BNS DAV Public School</h1>
+        {% include 'banner.html' %}
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="mt-2 mb-4">Enter Your Personal Information</h2>
+                <form class="row g-3" id="personalInfoForm">
+                    <div class="col-md-6">
+                        <label for="inputFirstname" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="inputFirstname" name="firstname" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputLastname" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="inputLastname" name="lastname" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputFathername" class="form-label">Father's Name</label>
+                        <input type="text" class="form-control" id="inputFathername" name="fathername" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputMothername" class="form-label">Mother's Name</label>
+                        <input type="text" class="form-control" id="inputMothername" name="mothername" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" name="email" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputContact" class="form-label">Contact Number</label>
+                        <input type="text" class="form-control" id="inputContact" name="contact" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputAadhaar" class="form-label">Aadhaar Number</label>
+                        <input type="number" class="form-control" id="inputAadhaar" name="aadhaar" required>
+                        <div class="invalid-feedback" id="aadhaarFeedback">
+                            Aadhaar number must be exactly 12 digits.
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label for="inputAddress" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="inputAddress" name="address" placeholder="1234 Main St" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="inputAddress2" class="form-label">Address 2</label>
+                        <input type="text" class="form-control" id="inputAddress2" name="address2" placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("personalInfoForm").addEventListener("submit", function(event) {
+            var aadhaarInput = document.getElementById("inputAadhaar");
+            if (aadhaarInput.value.length !== 12 || isNaN(aadhaarInput.value)) {
+                aadhaarInput.classList.add("is-invalid");
+                document.getElementById("aadhaarFeedback").style.display = "block";
+                event.preventDefault();
+            } else {
+                aadhaarInput.classList.remove("is-invalid");
+                document.getElementById("aadhaarFeedback").style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
